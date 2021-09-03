@@ -27,51 +27,37 @@ namespace SkinPass1Scheduling
             do
             {
                 // if (cheknotCoil == true)
-
                 insertAvailSarfasl();  
                 InnerParameter.lstChekFinishCapplan.Clear();
                
                 if (InnerParameter.lstPfAvail.Count == 0)
                     InnerParameter.lstChekFinishCapplan.Add(true);
-
                 for (int s = 0; s < Lst.lstAvailSarfasl.Count; s++)
                 {
-
-
                     int indSarfasl = Lst.lstAvailSarfasl[s];
                     Lst.currSolution.IndexSarfasl = indSarfasl;
-
-                 //   insertAvailProg(indSarfasl);
-
-
+          
                     for (int p = 0; p < Lst.lstAvailProg.Count; p++)
                     {
-
-
                         int idEfraz = Lst.lstAvailProg[p];
                         Lst.currSolution.IdEfraz = idEfraz;
                         Lst.CoilsRestart.Clear();
                         Lst.bigSolution.TotalObj = double.MaxValue;
                         Lst.bigSolution.LstSeqCoil.Clear();
                         doubleChekWorkRoll = 1;
-                        
 
                         //WidJump.calcuValJumWid(idEfraz, TanSkpTemParameter.idEfrazMisCurr, Lst.ProgEfrazes, LstCom.WidJumps);
 
                         for (InnerParameter.numCoil = 0; InnerParameter.numCoil < 4; )
                         {
-
-
                             Solution.resetObjToZeroObj(Lst.currSolution, Lst.CapPlans, Lst.CapPlansCurr, Lst.MaxValueGroups, Lst.CapPlanUpDates);
 
                                chekWorkRollCurr(indSarfasl, idEfraz);
 
                             TimeSpan setTime = TimeFunc.calcuSetupTime(idEfraz, Lst.Schedulings, Lst.Setups);
 
-
                                EquipGroupFailureTime.insertEquipGroupFailureList(setTime, Lst.lstAvailEquipGroupFailureTime, Lst.EquipGroupFailureTimes);
                             MaxValueGroup.insertMaxValueGroupsAvailList(Lst.MaxValueGroups, Lst.lstAvailMaxValueGroup);
-
 
                             if (InnerParameter.numCoil < 2)
                             {
@@ -79,14 +65,11 @@ namespace SkinPass1Scheduling
 
                                 InnerParameter.mainListCount = Lst.CoilsMain.Count;
 
-
                                 if (Lst.CoilsMain.Count != 0)
                                       sequencingProgram(idEfraz, indSarfasl, ref InnerParameter.numCoil);
                                 //*****************
                                 else
                                 {
-
-                                  //  CoilsRestart.Clear();
 
                                     if (//currSolution.lstSeqCoil.Count < y && 
                                         // lenTotal > lenOpt &&
@@ -106,8 +89,7 @@ namespace SkinPass1Scheduling
 
                                     else
                                         InnerParameter.numCoil = 4;
-
-                                   
+                                  
                                 }
                             }
 
@@ -145,18 +127,11 @@ namespace SkinPass1Scheduling
                                 //    InnerParameter.numCoil = 4;
                                 //}
 
-
-
                             }
-
-
                         }
-
-
                     }//
 
                 }
-
 
                 if (Lst.bestSolution.LstSeqCoil.Count == 0)
                 {
@@ -223,8 +198,6 @@ namespace SkinPass1Scheduling
                             // the program logic is wrong
                                break;
                         }
-
-
                     }
 
                      // All False
@@ -252,8 +225,6 @@ namespace SkinPass1Scheduling
                 if (Lst.SolutionsOutputPlan.Count == 35)
                   hh  = 35;
 
-
-
                 InnerParameter.finiTimeAlgorithm = Status.CurrTime;
             } while (Lst.SolutionsOutputPlan.Count < RunInformation.CountProg
 
@@ -263,13 +234,7 @@ namespace SkinPass1Scheduling
                 //  && chekSarbarnameAndFirstSarfasl < 3
                 );//   
             CapPlanUpDate.chekCoilWithoutSarfasl(Lst.CapPlanUpDates, Lst.Coils);
-
-       
-
         }
-
-
-
         public void sequencingProgram(int idEfrazLocal, int idSarfaslLocal, ref int numCoil)
         {
             int sequence = 0;
@@ -292,9 +257,6 @@ namespace SkinPass1Scheduling
                     break;
                 else if (chekLocal == -1)
                     continue;
-
-
-    
 
                 #region
                 do
@@ -319,8 +281,6 @@ namespace SkinPass1Scheduling
                         //if (id == 3843)
                         //    id = 0;
                         InnerParameter.chekCap = CapPlanFunc.chekMaxCapPlan(select, Lst.CapPlansCurr, Lst.Coils);
-                        
-                       
 
                          if (InnerParameter.chekCap == 1)
                         {
@@ -338,9 +298,7 @@ namespace SkinPass1Scheduling
 
                                 }
                                 else
-                                
-                                  
-                                        break;
+                                      break;
                                     
                                     //    ConstraintFunc.selectSameOrder(select, idEfrazLocal, idSarfaslLocal, datePlanLoc, InnerParameter.maxCount,Lst);
 
@@ -348,8 +306,6 @@ namespace SkinPass1Scheduling
                             }
                             else
                             {
-
-
                                 Lst.currSolution.LstSeqCoil.Insert(sequence, select);
 
 
@@ -366,16 +322,8 @@ namespace SkinPass1Scheduling
 
                             }
                         }
-                        
-
-
-
 
                     }
-
-
-
-
                 }
                 while (Lst.currSolution.LstSeqCoil.Count < InnerParameter.maxCount &&
                     //lenTotal < lenOpt*(1+lstWorkRoll.Last().upperPerc)
@@ -456,8 +404,6 @@ namespace SkinPass1Scheduling
                      InnerParameter.countBigProg = InnerParameter.countCurrProg;
                     Lst.bigSolution.LstSeqCoil.Clear();
                     Solution.replaceSolutions(TanSkpTemParameter.changeRoll, Lst.bigSolution, Lst.currSolution);
-
-
                 }
 
                 if (Lst.currSolution.LstSeqCoil.Count == InnerParameter.mainListCount)
@@ -481,12 +427,9 @@ namespace SkinPass1Scheduling
                         numCoil = 4;
 
                 }
-            
+         
 
             }
-
-
-
             // 
             if (Lst.bigSolution.LstSeqCoil.Count != 0 &&
                 //currSolution.lstSeqCoil.Count != 0 &&
@@ -499,53 +442,33 @@ namespace SkinPass1Scheduling
 
                 InnerParameter.countCurrProg = InnerParameter.countBigProg;
                 Solution.replaceSolutions(TanSkpTemParameter.changeRoll, Lst.currSolution, Lst.bigSolution);
-        
-
-
                 //Insert the best answer
                 updateBestsolution();      
-
-       
-
-
-
                 if (//currSolution.lstSeqCoil.Count < y && 
                     // lenTotal > lenOpt &&
                     reasonWorkRoll == 2 
                    // && flagDoubleWorkRoll == 1
                     )
                 {
-
-                    //*****************
+                   //*****************
                   //  CoilsRestart.Clear();
 
                     doubleChekWorkRoll = 2;
                     numCoil += 2;
                 }
-
                 else
                 {
                     //*****************
                     doubleChekWorkRoll = 1;
                     numCoil = 4;
                 }
-
-
-
             }
             Solution.resetObjToZeroObj(Lst.currSolution, Lst.CapPlans, Lst.CapPlansCurr, Lst.MaxValueGroups, Lst.CapPlanUpDates);
-
         }
-
-
         public void fixSolutionAndUpdate()
         {
-
-
            //Insert the best answer
             Solution.updatelstOutputPlan(Lst.bestSolution, Lst.SolutionsOutputPlan);
-
-
             string local = "local.txt";
             //writercurrProg(Lst.currSolution, local, false, Lst.Coils);
 
@@ -553,8 +476,6 @@ namespace SkinPass1Scheduling
 
             TimeFunc.chekTime(-1, Lst.SolutionsOutputPlan, Lst.ReleaseScheds, Lst.StationStops, Lst.Schedulings, Lst.ShiftWorks,
                     Lst.CapPlans, Lst.MaxValueGroups, Lst.Coils, Lst.CoilReleases, Lst.lstAvailMaxValueGroup, Lst.currSolution, Lst.Setups); 
-            
-         
 
             Coil.flgCoilClass(Lst.SolutionsOutputPlan.Last(), Lst.Coils);
 
@@ -574,7 +495,6 @@ namespace SkinPass1Scheduling
             InnerParameter.RuleBetweenProg = 1;
 
         }
-
 
         public void chekStatBeforAlgorithmOrWhile()
         {
@@ -599,16 +519,12 @@ namespace SkinPass1Scheduling
                    calcuWeiCampRelease(i);
                 calcuMinWidCampRelease(i);
                 //CapPlanFunc.calcuPffForPlans(i, Lst.SolutionsOutputPlan, Lst.ReleaseScheds, PathWriter, Lst.CapPlanUpDates, Lst.Coils, Lst.CoilReleases);
-
-
-            }
+           }
 
             CapPlan.calcuMaxValueCapPlan(Lst.CapPlans);
             CapPlan.updatePfAvail(InnerParameter.lstPfAvail, Lst.CapPlans);
             CapPlan.updateLstCapPlanCurr(Lst.CapPlans, Lst.CapPlansCurr);
             
-
-
             updateCurrStat();
 
 
@@ -626,9 +542,6 @@ namespace SkinPass1Scheduling
           //  ProgEfraz.chekFlgAvailForProgAfraz(Lst.ProgEfrazes, Lst.Coils);
 
             Coil.chekAvailSarfaslForCoils(Lst.Coils);
-           
-
-
         }
 
      
