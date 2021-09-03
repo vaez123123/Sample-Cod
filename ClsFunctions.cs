@@ -13,20 +13,12 @@ namespace SkinPass1Scheduling
 {
     public partial class SkinPass1Model
     {
-
-
-
-
         #region Only One Time Run befor Run Algorithm
-
-
         //TAN-SKP1
         public void assignSarfaslGroup()
         {
-
             foreach (var i in Lst.Sarfasls)
             {
-
                 List<Coil> sarfaslCoil = Lst.Coils.Where(a => a.Width <= i.WidTo && a.Width >= i.WidFrom).ToList();
 
                 foreach (var j in sarfaslCoil)
@@ -39,33 +31,19 @@ namespace SkinPass1Scheduling
                     i.LstCoilSarfasl.Add(j.ModelIndexCoil);
 
                 }
-
-
             }
-
-
-
         }
 
-
-
         #endregion Only One Time Run in Algorithm  befor Run Algorithm
-
-
-
         #region//Methode sequencingProgram
-
-     
+    
       //SKP1
         public void fillMainList(int indexSarfaslLocal, int idEfrazLocal)
         {
-
-
             List<Coil> lstCoilLocal;
             Lst.CoilsMain.Clear();
             Lst.CoilsTemDelete.Clear();
             Lst.CoilsMainCopy.Clear();
-
 
             //      type of program is sensitive
             if (TanSkpTemParameter.lstNotSensitive.Contains(idEfrazLocal) != true)
@@ -76,9 +54,7 @@ namespace SkinPass1Scheduling
                                                     q.AvailTime <= Status.CurrTime
                                                      && InnerParameter.lstPfAvail.Contains(q.PfId)
                                                       && q.LstSarfaslGroup.Contains(indexSarfaslLocal)).ToList();
-            // 
-
-            //      
+                 
                 //type of program is not sensitive
             else
 
@@ -87,8 +63,6 @@ namespace SkinPass1Scheduling
                                                     q.AvailTime <= Status.CurrTime
                                                      && InnerParameter.lstPfAvail.Contains(q.PfId)
                                                      && q.LstSarfaslGroup.Contains(indexSarfaslLocal)).ToList();
-
-
 
             foreach (int i in Lst.lstAvailEquipGroupFailureTime)
             {
@@ -100,11 +74,7 @@ namespace SkinPass1Scheduling
                 lstCoilLocal.RemoveAll(b => b.LstMaxValueGroup.Contains(j) != true);
             }
 
-
             lstCoilLocal = lstCoilLocal.Where(a => a.LstSarfaslGroup.Contains(indexSarfaslLocal) == true && a.FlagPlan == 1 && InnerParameter.lstPfAvail.Contains(a.PfId)).ToList();
-
-
-
             // if work roll does not change
              if (TanSkpTemParameter.changeRoll == false)
             {
@@ -116,66 +86,38 @@ namespace SkinPass1Scheduling
 
                 lstCoilLocal = lstCoilLocal.Where(b => b.Width <= (Status.LastWid + widJump) && InnerParameter.lstPfAvail.Contains(b.PfId)).ToList();
             }
-
-
-
-
             lstCoilLocal = lstCoilLocal.Distinct().ToList();
-
-
             foreach (var a in lstCoilLocal)
             {
 
                 Lst.CoilsMain.Add(a);
                 Lst.CoilsMainCopy.Add(a);
             }
-      
-            
+                 
         }
-
-       
-
-     
-        
+          
         #endregion
-
-
-
-
         #region  Release
 
         //SKP1
         public void updateCurrStat()
         {
-
-
             #region  if (lstOutputPlan.Count != 0)
 
             if (Lst.SolutionsOutputPlan.Count != 0)
             {
-
-
                 Status.LastWid = Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Width;
                 Status.LastTks = Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Tks;
                 Status.LastTksOut = Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].TksOutput;
                 Status.IndexSarfasl = Lst.SolutionsOutputPlan.Last().IndexSarfasl;
                 Status.IdEfraz = Lst.SolutionsOutputPlan.Last().IdEfraz;
-
-
-
-
                 if (Status.MinWidCampain > Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Width)
 
                     Status.MinWidCampain = Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Width;
-
-
             }
 
             #endregion
-
-
             #region else (lstOutputPlan.Count = 0)
-
             else
             {
                 int indexLocal;
@@ -196,36 +138,8 @@ namespace SkinPass1Scheduling
 
                     Status.IdEfraz = Lst.ReleaseScheds[indexMaxLocal].IdEfraz;
 
-
-
-                    //var query = from c1 in ReleaseScheds.Last().lstSeqCoil.AsEnumerable()
-                    //            join c2 in CoilReleases.AsEnumerable()
-                    //            on Convert.ToInt32(c1) equals c2.coilIndex
-                    //            select new
-                    //            {
-                    //                c2.width,
-                    //                c2.coilIndex
-                    //            };
-
-
-                    //var qq = (from c3 in query.AsEnumerable()
-                    //          let mx = query.Min(q => q.width)
-                    //          where c3.width == mx
-                    //          select c3).FirstOrDefault();
-
-
-
-
-                    //if (Status.MinWidCampain > CoilReleases[qq.coilIndex].width)
-
-                    //    Status.MinWidCampain = CoilReleases[qq.coilIndex].width;
-
-
-
-
                 }
-
-                
+               
                 else
                 {
 
@@ -239,20 +153,12 @@ namespace SkinPass1Scheduling
                     Status.IndexSarfasl = 0;
 
 
-                    // currStat.lastTksIn = 3.3;
-                    // currStat.lastTksOut = 0.98;
-                    //currStat.minWidCampain = 900;
-                    //currStat.lastWid = 1000;
-
-
                 }
 
 
             }
 
             #endregion
-
-
 
         }
 
@@ -307,8 +213,6 @@ namespace SkinPass1Scheduling
                     }
                     else
                     {
-
-                     
                         // true == change 
                         bool chekSarfaslLoc = chekChangeSarfasl(indexLstReleaseSchedul - 1, indexLstReleaseSchedul);
 
@@ -322,11 +226,7 @@ namespace SkinPass1Scheduling
                             // with new work roll  
                       
                             chekWorkRollRelease(weiLocal, lenLocal, false);
-
-
                     }
-
-
                 }
             }
 
@@ -480,8 +380,6 @@ namespace SkinPass1Scheduling
 
                 Lst.RollsBack.Add(rollTem);
                 Status.MinWidCampain = int.MaxValue;
-
-
             }
 
             else
@@ -493,24 +391,14 @@ namespace SkinPass1Scheduling
             }
 
             Status.IndexCamp = Lst.RollsBack.Count - 1;
-
-
         }
-
-
         
         public void calcuWeiCampRelease(int indexLstRelease)
         {
             rollTem = new Roll();
             double weiCamp = 0;
-
-
             Lst.RollsBack.Last().WeiRelease += Lst.ReleaseScheds[indexLstRelease].WeiSched;
-
-
             weiCamp = Lst.RollsBack.Last().CurrentTotalFixWei + Lst.RollsBack.Last().WeiRelease + Lst.RollsBack.Last().WeiDB;
-
-
 
             if (Lst.RollsBack.Last().WeiOpt <= weiCamp)
             {
@@ -534,18 +422,15 @@ namespace SkinPass1Scheduling
 
             else
             {
-
                 Lst.RollsBack.Last().FirstPlan = true;
                 Status.IndexCamp = Lst.RollsBack.Count - 1;
 
             }
 
-
         }
 
         #endregion
-
-     
+    
 
         //TEMPER/TAN/skp1
         public void updateBestsolution()
@@ -565,12 +450,6 @@ namespace SkinPass1Scheduling
 
         }
 
-
- 
-
-
-    
-
         //SkP1
         public void insertAvailSarfasl()
         {
@@ -588,8 +467,6 @@ namespace SkinPass1Scheduling
                         Lst.lstAvailSarfasl.Add(item.IndexSarfasl);
                 }
 
-
-
                 Lst.lstAvailSarfasl = Lst.lstAvailSarfasl.Distinct().ToList();
                 Lst.lstAvailSarfasl = Lst.lstAvailSarfasl.OrderBy(a => a).ToList();
             }
@@ -598,12 +475,6 @@ namespace SkinPass1Scheduling
 
         }
 
-  
-
-     
-      
-
-    
 
         /// <summary>
         /// 1 =sarfasl  0 = capacity 2= no change
@@ -670,10 +541,6 @@ namespace SkinPass1Scheduling
 
         }
 
-  
-
-
- 
         public void calcuObjChangSarfasl()
         {
 
@@ -688,9 +555,6 @@ namespace SkinPass1Scheduling
 
         }
 
-      
-       
-
         public void insertnotSensitiveSurFace()
         {
             //List<ProgAFraz> Mblist = lstProgAFraz.Where(a => !a.progMis.ToUpper().Contains("MB")).ToList();
@@ -700,10 +564,6 @@ namespace SkinPass1Scheduling
             TanSkpTemParameter.lstNotSensitive = Mblist.Select(a => a.IdEfraz).ToList();
 
         }
-
-       
-
-
 
     }
 }
