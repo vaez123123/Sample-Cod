@@ -176,8 +176,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
         }
 
 
-        //محاسبه زمان آماده سازی بین دو برنامه
-        public static TimeSpan calcuSetupTime(int currProgLocal, List<Scheduling> Schedulings, List<Setup> Setups)
+          public static TimeSpan calcuSetupTime(int currProgLocal, List<Scheduling> Schedulings, List<Setup> Setups)
         {
             TimeSpan timeSetupLocal;
             if (Schedulings.Count != 0)
