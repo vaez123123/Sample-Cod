@@ -258,8 +258,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
         public static void updateListsAfterInsertCoil(int select, List<Coil> Coils, List<Coil> CoilsMain, List<Coil> CoilsTemDelete,
             List<Coil> CoilsAvailProg, List<Coil> CoilsCapDay)
         {
-            CoilsAvailProg.Remove(Coils[select]);// حذف از لیست اصلی
-            CoilsMain.Remove(Coils[select]);
+            CoilsAvailProg.Remove(Coils[select]);//
             CoilsCapDay.Remove(Coils[select]);
             CoilsCapDay.AddRange(CoilsTemDelete);
             CoilsTemDelete.Clear();
@@ -269,8 +268,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
             List<int> lstAvailMaxValueGroup, List<CapPlan> CapPlansCurr, List<Coil> CoilsMain, List<Coil> CoilsTemDelete,
             List<Coil> CoilsAvailProg, List<Coil> CoilsCapDay)
         {
-            // اولین کلاف انتخابی در برنامه به منظور چک کردن مینیم تعداد کلاف در برنامه 
-            if (currSolution.LstSeqCoil.Count == 1)
+             if (currSolution.LstSeqCoil.Count == 1)
 
                 InnerParameter.firstCoilBigCoun = select;
 
@@ -328,8 +326,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
             TimeParameter.timeseqSameAtt.Start();
             int indxFirst = 0;
 
-            //اگر خطی زون ندارد مقدار فیلد شماره زون باید -1 زده شود
-            if (zoneNumber != -1)
+             if (zoneNumber != -1)
                 indxFirst = solution.LstZoneCoil.FindIndex(a => a == zoneNumber);
 
             if (indxFirst != -1)
@@ -338,8 +335,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
 
                 for (int i = indxFirst; i < indxLast; i++)
                 {
-                    //فقط برای خطوط اسیدشویی Pic//
-                    if (RunInformation.NumStation == 10 || RunInformation.NumStation == 11)
+                          if (RunInformation.NumStation == 10 || RunInformation.NumStation == 11)
                     {
                         if (Coils[coilSelection].FlgPhosphorus == 1)
                         {
@@ -364,8 +360,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
                     double difTks = 0;
                     double difTksOut = 0;
                     int difWid = 0;
-                    //مقادیر فلگها باید در صورتی که برای یک خط مهم است برابر یک و در غیراینصورت برابر -1 باشد
-                    if (flgTks == 1)
+                        if (flgTks == 1)
                         difTks = Coils[coilSelection].Tks - Coils[solution.LstSeqCoil[i]].Tks;
                     if (flgTksOut == 1)
                         difTksOut = Coils[coilSelection].TksOutput - Coils[solution.LstSeqCoil[i]].TksOutput;
