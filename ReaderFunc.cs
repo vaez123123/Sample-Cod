@@ -315,10 +315,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
                             ProgEfrazes.Last().Oil = Convert.ToInt32(dr["val_attribute_sptyp"]);
                         }
                     }
-                    else
-                    {
-                        //اگر رابطه ای غیر از مساوی باشد باید برای خواندن داده ها اینجا اضافه شود
-                    }
+                    
 
 
                 }
@@ -355,10 +352,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
                             ProgEfrazes.Last().Oil = Convert.ToInt32(dr["val_attribute_sptyp"]);
                         }
                     }
-                    else
-                    {
-                        //اگر رابطه ای غیر از مساوی باشد باید برای خواندن داده ها اینجا اضافه شود
-                    }
+                   
 
                 }
 
@@ -374,7 +368,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
 
             ProgEfrazes.RemoveAll(a => !IdEfrazLoc.Contains(a.IdEfraz));
 
-            //اضافه
+            //
             ProgEfrazes = ProgEfrazes.OrderBy(a => a.IdEfraz).ToList();
         }
 
@@ -413,11 +407,10 @@ namespace IPSO.CMP.CommonFunctions.Functions
                 z = tksFrom;
                 x = tksTo;
 
-                int flg = TksJumps.Last().FlgInputOutput;//فلگ ورودی یا خروجی بودن
-
+                int flg = TksJumps.Last().FlgInputOutput;
                 if (flg == 0)// inputTks
                 {
-                    if (dr["tks_max_jump_tkjum"] != DBNull.Value) //پرش برحسب مقدار
+                    if (dr["tks_max_jump_tkjum"] != DBNull.Value)//   
                     {
                         float valJumInput = float.Parse(dr["tks_max_jump_tkjum"].ToString());
                         TksJumps.Last().FlgInputOutput = flg;
@@ -425,10 +418,10 @@ namespace IPSO.CMP.CommonFunctions.Functions
                                                             : dr["tks_limit_jump_tkjum"].ToString());
                         TksJumps.Last().ValueJumpInput = valJumInput;
                         TksJumps.Last().PercentJumpInput = -1;
-                    }//if  پرش برحسب مقدار
+                    }//if    
 
 
-                    else //پرش برحسب درصد
+                    else //  
                     {
                         float perJumInput = float.Parse(dr["tks_pcn_max_jump_tkjum"].ToString());
                         TksJumps.Last().FlgInputOutput = flg;
@@ -436,7 +429,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
                         TksJumps.Last().LimitedJumpInput = float.Parse(dr["tks_limit_jump_tkjum"].Equals(DBNull.Value) ? "0"
                                                             : dr["tks_limit_jump_tkjum"].ToString());
                         TksJumps.Last().ValueJumpInput = -1;
-                    }//else پرش برحسب درصد
+                    }//else   
 
                 }// if inputTks
 
@@ -449,16 +442,16 @@ namespace IPSO.CMP.CommonFunctions.Functions
                         TksJumps.Last().FlgInputOutput = flg;
                         TksJumps.Last().ValueJumpOutput = valJumpOutput;
                         TksJumps.Last().PercentJumpOutput = -1;
-                    }//if  پرش برحسب مقدار
+                    }//if    
 
 
-                    else //پرش برحسب درصد
+                    else //  
                     {
                         float perJumOutput = float.Parse(dr["tks_pcn_max_jump_tkjum"].ToString());
                         TksJumps.Last().FlgInputOutput = flg;
                         TksJumps.Last().PercentJumpOutput = perJumOutput;
                         TksJumps.Last().ValueJumpOutput = -1;
-                    }//else پرش برحسب درصد
+                    }//else   
 
                 }//else // outputTks
 
@@ -590,7 +583,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
                     addDBDCampPlan(dr, DBDCampPlans);
                 }
             }
-            // خالی بودن  لیست برنامه ظرفیت
+            //      
             if (local == true)
             {
                 CapPlan localCap = new CapPlan();
@@ -689,26 +682,10 @@ namespace IPSO.CMP.CommonFunctions.Functions
 
             #region CapPlansCurr
 
-            
-            //foreach (CapPlan cap in CapPlans)
-            //{
-            //    CapPlan capLoc = new CapPlan();
-            //    capLoc.DatePlan = cap.DatePlan;
-            //    capLoc.FlgInactive = cap.FlgInactive;
-            //    capLoc.MaxValueFixChangeDay = cap.MaxValueFixChangeDay;
-            //    capLoc.MaxValueRespond = cap.MaxValueRespond;
-            //    capLoc.NetValueAfterChangeDay = cap.NetValueAfterChangeDay;
-            //    capLoc.NetValuePf = cap.NetValuePf;
-            //    capLoc.NetValuePfFix = cap.NetValuePfFix;
-            //    capLoc.PfId = cap.PfId;
-
-            //    CapPlansCurr.Add(capLoc);
-            //}
+          
 
 
-
-
-            // خالی بودن  لیست برنامه ظرفیت
+            //      
             if (local == true)
             {
                 CapPlan localCap = new CapPlan();
@@ -836,10 +813,9 @@ namespace IPSO.CMP.CommonFunctions.Functions
             shift.LenShift = TimeSpan.FromHours(12);//DB
             shift.EndShift = shift.StartShift + shift.LenShift;//DB           
 
-            shift.FlgNightShift = 0;//برابر یک اگر شیفت شب باشد
+            shift.FlgNightShift = 0;//     
 
-            shift.FlgShutDown = 1;// در صورت مجاز بودن شاتدان در شیفت فلگ برابر یک است
-
+            shift.FlgShutDown = 1;// 
             ShiftWorks.Add(shift);
 
             ShiftWork shift1 = new ShiftWork();
@@ -848,10 +824,8 @@ namespace IPSO.CMP.CommonFunctions.Functions
             shift1.LenShift = TimeSpan.FromHours(12);//DB
             shift1.EndShift = shift1.StartShift + shift1.LenShift;//DB           
 
-            shift1.FlgNightShift = 1;//برابر یک اگر شیفت شب باشد
-
-            shift1.FlgShutDown = 0;// در صورت مجاز بودن شاتدان در شیفت فلگ برابر یک است
-
+            shift1.FlgNightShift = 1;
+            shift1.FlgShutDown = 0;//
             ShiftWorks.Add(shift1);
         }
 
@@ -923,8 +897,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
                 Setups.Add(shhh);
             }
 
-            //ردیف های اضافی که اول لیست برای نوع برنامه ها از دیتابیس خوانده شده حذف می شود
-            for (int k = 0; k < count; k++)
+             for (int k = 0; k < count; k++)
             {
                 Setups.RemoveAt(0);
             }
@@ -957,11 +930,8 @@ namespace IPSO.CMP.CommonFunctions.Functions
             int z = -1;
             foreach (DataRow dr in dt.Rows)
             {
-                // اصلاح نام فیلد ایدی گروه        
-                if (z == int.Parse(dr["order_group_id"].ToString()))
+                  if (z == int.Parse(dr["order_group_id"].ToString()))
                 {
-                    // اصلاح دارد
-                    // اضافه کردن سفارش
                     string Orderlocal = dr[""].ToString().ToUpper();
                     EquipGroupFailureTimes.Last().LstOrderEquip.Add(Orderlocal);
 
@@ -1406,49 +1376,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
 
         }
 
-//        private void readSarfasl(List<Sarfasl> Sarfasls)
-//        {
-//            dt = new DataTable();
-//            string s = string.Format(@"select def.bas_camp_define_id,
-//                                               def.nam_camp_cmpdf,      
-//                                               ass.cmpdf_bas_camp_define_id,
-//                                               ass.orgrp_sop_order_group_id
-//                                          from lmp.lmp_bas_camp_defines def,
-//                                               lmp.lmp_bas_camp_assigns ass
-//                                        where def.statn_bas_station_id = {0}
-//                                        and ass.cmpdf_bas_camp_define_id = def.bas_camp_define_id
-//                                        order by ass.cmpdf_bas_camp_define_id ", RunInformation.NumStation);
 
-//            dt = WorkData.GetDataTable(s, CommandType.Text);
-//            int z = -1;
-//            int i = 0;
-
-//            foreach (DataRow dr in dt.Rows)
-//            {
-//                int sarfaslLoc = Convert.ToInt32(dr["cmpdf_bas_camp_define_id"]);
-
-//                if (z != sarfaslLoc)
-//                {
-//                    z = sarfaslLoc;
-
-//                    Sarfasl b = new Sarfasl();
-//                    b.IdSarfasl = sarfaslLoc;
-//                    b.IndexSarfasl = i;
-
-//                    b.LstGroupSarfasl.Add(Convert.ToInt32(dr["orgrp_sop_order_group_id"].ToString()));
-
-//                    Sarfasls.Add(b);
-//                    i++;
-//                }
-
-//                else
-//                {
-//                    Sarfasls.Last().LstGroupSarfasl.Add(Convert.ToInt32(dr["orgrp_sop_order_group_id"].ToString()));
-//                }
-//            }
-
-
-//        }
 
         private void readSarfaslTem(List<Sarfasl> Sarfasls)
         {
