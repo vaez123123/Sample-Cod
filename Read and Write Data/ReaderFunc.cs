@@ -73,7 +73,6 @@ namespace IPSO.CMP.CommonFunctions.Functions
             return InnerParameter.errorMessage;
         }
 
-
         public void readCommonDataTemp(CommonLists Lst, int counterCoil, int counterCoilRelease, int counterCoilReleaseOtherSt
         , string widAtt, string TksAtt, string TksOutAtt, string Prog, string SurfaceRoughAtt, string trim, string oil
         , string typ_Product_Family_GAL)
@@ -160,9 +159,6 @@ namespace IPSO.CMP.CommonFunctions.Functions
             TimeParameter.timereadJumpBetweenCrown.Stop();
 
         }
-
-    
-
 
         private void readParameter(string widAtt, string TksAtt, string TksOutAtt, string Prog, string SurfaceRoughAtt, string trim, string oil, string typ_Product_Family_GAL)
         {
@@ -680,12 +676,8 @@ namespace IPSO.CMP.CommonFunctions.Functions
                 DataBase.TksOutMin = double.Parse(dr["tksOutMin"].ToString());
                 DataBase.MaxJumpTksOut = DataBase.TksOutMax - DataBase.TksOutMin;
                 //DataBase.MaxJumpWidOut = DataBase.WidOutMax - DataBase.WidOutMin;
-
-
             }
         }
-
-   
   
         private void readShift(List<ShiftWork> ShiftWorks)
         {
@@ -696,13 +688,9 @@ namespace IPSO.CMP.CommonFunctions.Functions
             shift.EndShift = shift.StartShift + shift.LenShift;//DB           
 
             shift.FlgNightShift = 0;
-            
-         
-
+           
             shift.FlgShutDown = 1;
             
- 
-
             ShiftWorks.Add(shift);
 
             ShiftWork shift1 = new ShiftWork();
@@ -713,12 +701,8 @@ namespace IPSO.CMP.CommonFunctions.Functions
 
             shift1.FlgNightShift = 1;
             
-   
-
             shift1.FlgShutDown = 0;
             
- 
-
             ShiftWorks.Add(shift1);
         }
 
