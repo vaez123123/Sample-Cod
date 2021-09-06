@@ -41,16 +41,11 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
             {
                 ////////////////
                 if (InnerParameter.RuleBetweenProg == 1)
-                {
-                    
-
+                { 
                     int chek = seqFirst(coilSelection, idEfrazLocal , ProgEfrazes,  Coils,TksJumps);
                     if (chek == 1)
                     {
-
                         currSolution.LstSeqCoil.Add(coilSelection);
-
-
                         return 1;
                     }
                     else
@@ -65,11 +60,8 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
 
             }
 
-
             else
                 {
-
-
                     #region //Single member
                     if (countSize == 1)
                 {
@@ -78,13 +70,10 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
 
                     if (widChek == true)
                     {
-
                         bool tksChek = chekJumpTks(coilSelection, -1, currSolution.LstSeqCoil[0], Coils, TksJumps);
-
 
                         if (tksChek == true)
                         {
-
                             //////////////
                             if (InnerParameter.RuleBetweenProg == 1)
                             {
@@ -92,10 +81,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
 
                                 if (chek == 1)
                                 {
-
-
                                     currSolution.LstSeqCoil.Insert(0, coilSelection);
-
 
                                     return 1;
                                 }
@@ -106,13 +92,8 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                             else
                             {
                                 currSolution.LstSeqCoil.Insert(0, coilSelection);
-
-
                                 return 1;
-
                             }
-
-
                         }
                         else
                         {
@@ -124,7 +105,6 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                                 {
                                     currSolution.LstSeqCoil.Insert(1, coilSelection);
 
-
                                     return 1;
                                 }
                                 else
@@ -132,10 +112,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                             }
                             else
                                 return -1;
-
                         }
-
-
                     }
 
                      // Compared to previous
@@ -156,17 +133,11 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                         }
                         else
                             return -1;
-
-
                     }
-
 
                 }
 
-
-
                 #endregion
-
 
                     #region //Several members
                     else
@@ -174,7 +145,6 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                     //  for (int i = currSolution.lstSeqCoil.Count - 1; i < currSolution.lstSeqCoil.Count; i--)
                     for (int i = currSolution.LstSeqCoil.Count - 1; i >= 0; i--)
                     {
-
                       
                         #region  //  first coil
                         if (i == currSolution.LstSeqCoil.Count - 1)
@@ -209,26 +179,19 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                                     continue;
                                 }
                             }
-
-
                         }
 
                         #endregion
-
-
 
                         #region // last
 
 
                         else if (i == 0)
                         {
-
                             bool one;
                             one = chekOneTwo(coilSelection, -1, currSolution.LstSeqCoil[i],Coils, TksJumps);
                             if (one == true)
                             {
-
-
                                 if (InnerParameter.RuleBetweenProg == 1)
                                 {
 
@@ -251,18 +214,13 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                                 {
                                     //before i
                                    currSolution.LstSeqCoil.Insert(i, coilSelection);
-
-
                                     return 1;
-
                                 }
                                 ////////////
                             }
 
                             else
                                 return -1;
-
-
                         }
                         #endregion
 
@@ -293,17 +251,13 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                                                currSolution.LstSeqCoil.Insert(i, coilSelection);
 
                                             return 1;
-
-
                                         }
                                         else
                                             continue;
                                     }
                                     else
                                         return -1;
-
                                 }
-
 
                             }
                             else
@@ -318,7 +272,6 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
 
                                         return 1;
 
-
                                     }
                                     else
                                         continue;
@@ -326,14 +279,8 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                                 else
                                     return -1;
 
-
-
                             }
-
-
                         }
-
-
 
                     }//  for (int i = lstCurrentSeqCoil.Count - 1; i < lstCurrentSeqCoil.Count; i--)
 
@@ -342,13 +289,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                 }// else
 
                 #endregion
-
-
-
             }
-
-
-
         }
          //ALL
        public static int seqFirst(int coilSelection, int idEfrazLocal, List<ProgEfraz> ProgEfrazes, List<Coil> Coils, List<TksJump> TksJumps)
@@ -386,18 +327,13 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
             limiteJumpInput = calcuLimitedJumpTks(maxTks, TanSkpTemParameter.idEfrazMisCurr, TksJumps);
             TimeParameter.Timetkslimi.Stop();
             TimeParameter.Timetks.Stop();
-            int WidJumpFinal;
-
-         
+            int WidJumpFinal;       
 
             if (TanSkpTemParameter.changeRoll == true && TanSkpTemParameter.lstNotSensitive.Contains(idEfrazLocal) == true)
 
                 WidJumpFinal = InnerParameter.widJumpLocalOutAsc;
             else
                 WidJumpFinal = InnerParameter.widJumpLocalOutDes;
-
-
-
 
             if (Math.Abs(Coils[coilSelection].Width - Status.LastWid) <= WidJumpFinal)
             {
@@ -418,25 +354,15 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
 
              widCoil = Coils[coilSelection].Width;
 
-            // int idEfrazMis = lstProgEFraz.Find(c => c.idEfraz == idEfrazLocal).codProgMis;
-
-
-
-            // int widJumpLocal = calcuWidJumpDec(idEfrazMis,0);
-
-
             #region if (coilBefor == -1)
 
             if (coilBefor == -1)
             {
-
                  widCoilAfter = Coils[coilAfter].Width;
-
-
                    if (TanSkpTemParameter.chekDecInc == true)
                 {
 
-                    // Sinusoidal
+                    // Sinusoidal trend
                     if (InnerParameter.flgSeqWidOut == (int)Parameter.EnumStatusJump.Swinging)
                     {
 
@@ -447,7 +373,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                     }
 
 
-                    // Ascending
+                    // Ascending trend
                     else if (InnerParameter.flgSeqWidOut == (int)Parameter.EnumStatusJump.Ascending)
                     {
                         // Ascending
@@ -457,7 +383,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                         else
                             return false;
                     }
-                    // Descending
+                    // Descending trend
 
                     else
                     {
@@ -496,7 +422,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                 {
 
 
-                    // Sinusoidal
+                    // Sinusoidal trend
                     if (InnerParameter.flgSeqWidOut == (int)Parameter.EnumStatusJump.Swinging)
                     {
 
@@ -506,7 +432,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                             return false;
                     }
 
-                    // Ascending
+                    // Ascending trend
                     else if (InnerParameter.flgSeqWidOut == (int)Parameter.EnumStatusJump.Ascending)
                     {
 
@@ -515,7 +441,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                         else
                             return false;
                     }
-                    // Descending
+                    // Descending trend
                     else
 
                     {
@@ -579,11 +505,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                 TimeParameter.Timetkslimi.Start();
                 limiteJumpInput = calcuLimitedJumpTks(maxTks, TanSkpTemParameter.idEfrazMisCurr, TksJumps);
                 TimeParameter.Timetkslimi.Stop();
-
                 TimeParameter.Timetks.Stop();
-
-
-
                 chekJumpLoc = chekJumpTksIn(-1);
                 if (chekJumpLoc == true)
                 {
@@ -594,18 +516,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                         return false;
                 }
                 else
-                    return false;
-
-                //if (Math.Round(Math.Abs(tksCoilInput - tksCoilAfterInput), 2) <= Math.Round((Math.Min((valueJumpInput * maxTks), limiteJumpInput)), 2) &&
-                //    Math.Round(Math.Abs(tksCoilOutput - tksCoilAfterOutput), 2) <= Math.Round((valueJumpOutput * maxTksout), 2))
-
-                //    return true;
-                //else
-                //    return false;
-
-              
-
-
+                    return false;     
             }
             else if (coilAfter == -1)
             {
@@ -615,8 +526,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
 
                  maxTks = Math.Max(tksCoilBeforInput, tksCoilInput);
                  maxTksout = Math.Max(tksCoilBeforOutput, tksCoilOutput);
-                
-
+              
                 TimeParameter.Timetks.Start();
                 TimeParameter.TimetksOutput.Start();
                 valueJumpOutput = calcuTksJumpOutput(maxTksout, TanSkpTemParameter.idEfrazMisCurr, TksJumps);
@@ -628,7 +538,6 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                 limiteJumpInput = calcuLimitedJumpTks(maxTks, TanSkpTemParameter.idEfrazMisCurr, TksJumps);
                 TimeParameter.Timetkslimi.Stop();
                 TimeParameter.Timetks.Stop();
-
 
                 chekJumpLoc = chekJumpTksIn(1);
                 if (chekJumpLoc == true)
@@ -660,8 +569,6 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                  tksCoilBeforOutput = Coils[coilBefor].TksOutput;
                  maxTks = Math.Max(tksCoilAfterInput, tksCoilInput);
                  maxTksout = Math.Max(tksCoilAfterOutput, tksCoilOutput);
-             
-
                 TimeParameter.Timetks.Start();
                 TimeParameter.TimetksOutput.Start();
                 valueJumpOutput = calcuTksJumpOutput(maxTksout, TanSkpTemParameter.idEfrazMisCurr, TksJumps);
@@ -741,11 +648,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                 //else
                 //    return false;
 
-
-
             }
-
-
         }
 
        public static bool chekJumpTksIn(int coilBefor)
@@ -764,7 +667,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                    else
                        return false;
 
-                   // Ascending
+                   // Ascending trend
                else if (InnerParameter.flgSeqTksIn == (int)Parameter.EnumStatusJump.Ascending)
 
                    if (Math.Round(Math.Abs(tksCoilInput - tksCoilAfterInput), 2) <= Math.Round((Math.Min((valueJumpInput * maxTks), limiteJumpInput)), 2)
@@ -774,7 +677,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                    else
                        return false;
 
-                   // Descending
+                   // Descending trend
                else
 
                    if (Math.Round(Math.Abs(tksCoilInput - tksCoilAfterInput), 2) <= Math.Round((Math.Min((valueJumpInput * maxTks), limiteJumpInput)), 2) &&
@@ -789,7 +692,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
            #region else if (coilAfter == -1)
            else
            {
-               //Sinusoidal
+               //Sinusoidal  trend
                if (InnerParameter.flgSeqTksIn == (int)Parameter.EnumStatusJump.Swinging)
 
                if (Math.Round(Math.Abs(tksCoilInput - tksCoilBeforInput), 2) <= Math.Round((Math.Min(valueJumpInput * maxTks, limiteJumpInput)), 2))
@@ -799,7 +702,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                else
                    return false;
 
-               // Ascending
+               // Ascending trend
 
                else if (InnerParameter.flgSeqTksIn == (int)Parameter.EnumStatusJump.Ascending)
                    if (Math.Round(Math.Abs(tksCoilBeforInput - tksCoilInput), 2) <= Math.Round((Math.Min(valueJumpInput * maxTks, limiteJumpInput)), 2) 
@@ -810,7 +713,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                else
                    return false;
 
-               // Descending
+               // Descending trend
                
               else 
                    if (Math.Round(Math.Abs(tksCoilBeforInput - tksCoilInput), 2) <= Math.Round((Math.Min(valueJumpInput * maxTks, limiteJumpInput)), 2) 
@@ -844,7 +747,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                        return false;
 
 
-                          // Ascending
+                          // Ascending trend
                else if (InnerParameter.flgSeqTksOut == (int)Parameter.EnumStatusJump.Ascending)
 
                    if (Math.Round(Math.Abs(tksCoilOutput - tksCoilAfterOutput), 2) <= Math.Round((valueJumpOutput * maxTksout), 2)
@@ -871,7 +774,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
            {
 
 
-               //Sinusoidal
+               //Sinusoidal trend
                if (InnerParameter.flgSeqTksOut == (int)Parameter.EnumStatusJump.Swinging)
 
                    if (Math.Round(Math.Abs(tksCoilBeforOutput - tksCoilOutput), 2) <= Math.Round((valueJumpOutput * maxTksout), 2))
@@ -881,7 +784,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                    else
                        return false;
 
-               //Ascending
+               //Ascending trend
                else if (InnerParameter.flgSeqTksOut == (int)Parameter.EnumStatusJump.Ascending)
                    if (Math.Round(Math.Abs(tksCoilBeforOutput - tksCoilOutput), 2) <= Math.Round((valueJumpOutput * maxTksout), 2)
                        && Math.Round(tksCoilBeforOutput - tksCoilOutput, 2) <= 0)
@@ -892,7 +795,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                        return false;
 
 
-                      //Descending
+                      //Descending trend
                else
 
                    if (Math.Round(Math.Abs(tksCoilBeforOutput - tksCoilOutput), 2) <= Math.Round((valueJumpOutput * maxTksout), 2)
@@ -980,8 +883,6 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
             }
             else
                 return false;
-
-
         }
      
        public static double calcuLimitedJumpTks(double maxTks, int idEfrazMis, List<TksJump> TksJumps)
@@ -1000,19 +901,8 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                         select new
                         {
                             limitedJumpInput = tks.LimitedJumpInput
-
-
                         };
             TimeParameter.TimequeryTks.Stop();
-
-
-            // whereTks.Start();
-
-            //List< TksJump> eee = lstTksJump.Where(a => a.tksFrom <= maxTks && a.tksTo >= maxTks && a.flgInputOutput == 0 && a.codMis == idEfrazMis).ToList();
-
-            // whereTks.Stop();
-
-
 
             int oo = query.Count();
             if (query.Count() <= 0)
@@ -1123,17 +1013,9 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
 
                if (InnerParameter.chekCap == 1)
                {
-
-
                    Lst.currSolution.LstSeqCoil.Insert(index + 1, localCoillist[0].ModelIndexCoil);
-
-
                    modelIndexCoil = localCoillist[0].ModelIndexCoil;
-
                    SequenceL2.updateAfterInsertCoil(localCoillist[0].ModelIndexCoil,Lst);
-
-
-
                    localCoillist.RemoveAt(0);
                }
                else
@@ -1142,11 +1024,7 @@ namespace IPSO.CMP.Tan_Skp_Tem_Function.ConstraintSequence
                    break;
                }
 
-
-
            }
-
-
        }
 
        public static void updateAfterInsertCoil(int select, CommonLists Lst)
