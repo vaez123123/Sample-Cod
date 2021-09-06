@@ -13,16 +13,10 @@ namespace SKPScheduling
 {
     public  class WriterSKP : WriterFunc
     {
-
-        public static int ffff;
-        
+        public static int ffff; 
         public static string PathWriter;
-       
-              
-     
         public static int flgWriter = -1;
         public static DataTable dt = new DataTable();
-
         public static void creatNotes(string PathWriter)
         {
             if (flgWriter == 1)
@@ -56,8 +50,7 @@ namespace SKPScheduling
             string scheduling = "scheduling";
 
             if (flgWriter == 1)
-            {
-                
+            {      
                 write(coilmain, Lst);
                 writerworkRoll(Lst.RollsWork, workRoll);
                 writerworkRoll(Lst.RollsBack, backRoll);
@@ -65,27 +58,18 @@ namespace SKPScheduling
                 writeSnapShot(snapShot, Lst.Coils);
                 writeScheduling(scheduling, Lst);
                 writerRelease("Release.txt", true, Lst);
-
-
                 string rankAllCoil = "rankAllCoil";
                 writeRankAll(rankAllCoil, Lst);
             }
         }
-
 
         public static void write(string name, CommonLists Lst)
         {
             if (flgWriter == 1)
             {
                 string fullnameoutput;
-
-
                 string exten = ".txt";
-
-
-
                 fullnameoutput = PathWriter + name + exten;
-                // یعنی همه جواب ها داخل یه فایل  چاپ بشود
                 FileStream fk = new FileStream(fullnameoutput, FileMode.Create, FileAccess.Write);
 
                 StreamWriter sh = new StreamWriter(fk);
@@ -98,8 +82,6 @@ namespace SKPScheduling
                 {
                     for (j = 0; j < Lst.SolutionsOutputPlan[i].LstSeqCoil.Count; j++)
                     {
-
-
                         sh.Write(i + 1);
                         sh.Write("\t");
 
@@ -111,8 +93,6 @@ namespace SKPScheduling
 
                         sh.Write(Lst.Coils[Lst.SolutionsOutputPlan[i].LstSeqCoil[j]].IdSnapshot);
                         sh.Write("\t");
-
-
                         sh.Write(Lst.SolutionsOutputPlan[i].IndexSarfasl);
                         sh.Write("\t");
                         sh.Write(Lst.SolutionsOutputPlan[i].IdEfraz);
@@ -132,9 +112,7 @@ namespace SKPScheduling
 
                         sh.WriteLine();
                     }
-                    // sh.WriteLine();
-                    //  sh.WriteLine();
-                    //  sh.WriteLine();
+                  
                 }
 
                 sh.Close();
@@ -148,12 +126,8 @@ namespace SKPScheduling
             if (flgWriter == 1)
             {
                 string fullnameoutput;
-
-
                 string exten = ".txt";
-
                 fullnameoutput = PathWriter + name + exten;
-
 
                 // fullnameoutput = @"C:\Documents and Settings\p.vaez\Desktop\Output\SKP1\" + DataBase.runId2 + "\\" + name + exten;
                 FileStream fk = new FileStream(fullnameoutput, FileMode.Create, FileAccess.Write);
@@ -226,20 +200,13 @@ namespace SKPScheduling
             if (flgWriter == 1)
             {
                 string fullnameoutput;
-
-
                 string exten = ".txt";
-
-
-
                 fullnameoutput = PathWriter + route + exten;
                 //string route2 = @"C:\Documents and Settings\p.vaez\Desktop\Output\SKP1\" + DataBase.runId2 + "\\" + route;
                 FileStream fk2;
 
                 fk2 = new FileStream(fullnameoutput, FileMode.Append, FileAccess.Write);
                 StreamWriter stream2 = new StreamWriter(fk2);
-
-
 
                 if (breakline == false)
                     stream2.WriteLine();
@@ -275,9 +242,6 @@ namespace SKPScheduling
                     double tksOutMin = tksOutMinn;
                     double maxWid = widMaxx;
                     double minWid = widMinn;
-
-
-
 
                     stream2.Write(Convert.ToString(Lst.SolutionsOutputPlan.Count - 1)
                          + "\t" + Convert.ToString(InnerParameter.lstCountProgLocal.Last())
@@ -329,14 +293,10 @@ namespace SKPScheduling
                                    + "\t" + Convert.ToString(progLoc.StartTimeSelectProg)
                                    + "\t" + Convert.ToString(progLoc.EndTimeSelectProg)
 
-
                         );
-
                   
                     stream2.WriteLine();
                 }
-
-
 
                 stream2.Close();
             }
@@ -347,12 +307,7 @@ namespace SKPScheduling
             if (flgWriter == 1)
             {
                 string fullnameoutput;
-
-
                 string exten = ".txt";
-
-
-
                 fullnameoutput = PathWriter + route + exten;
 
                 // string route2 = @"C:\Documents and Settings\p.vaez\Desktop\Output\SKP1\" + DataBase.runId2 + "\\" + route;
@@ -360,7 +315,6 @@ namespace SKPScheduling
 
                 fk2 = new FileStream(fullnameoutput, FileMode.Append, FileAccess.Write);
                 StreamWriter stream2 = new StreamWriter(fk2);
-
 
                 if (breakline == false)
                     stream2.WriteLine();
@@ -403,11 +357,6 @@ namespace SKPScheduling
                            + "\t" + Convert.ToString(tksMax)
                             + "\t" + Convert.ToString(tksMin)
 
-
-                          // + "\t" + Convert.ToString(tksOutMax)
-                        // + "\t" + Convert.ToString(tksOutMin)
-
-
                           + "\t" + Convert.ToString(InnerParameter.weiTotal)
                         //  + "\t" + Convert.ToString(weiOpt)
 
@@ -435,14 +384,10 @@ namespace SKPScheduling
                                   + "\t" + Convert.ToString(progLoc.ObjWeiWorkRoll * WeightObjective.WorkRollWeiCoef)
                                   + "\t" + Convert.ToString(progLoc.ObjPriorGroupTypeMis * WeightObjective.PriorGroupTypeMisCoef)
 
-
                         );
-
                     
                     stream2.WriteLine();
                 }
-
-
 
                 stream2.Close();
             }
@@ -453,11 +398,7 @@ namespace SKPScheduling
             if (flgWriter == 1)
             {
                 string fullnameoutput;
-
-
                 string exten = ".txt";
-
-
 
                 fullnameoutput = PathWriter + route + exten;
 
@@ -496,22 +437,14 @@ namespace SKPScheduling
             if (flgWriter == 1)
             {
                 string fullnameoutput;
-
-
                 string exten = ".txt";
 
-
-
                 fullnameoutput = PathWriter + name + exten;
-
-
 
                 // fullnameoutput = @"C:\Documents and Settings\p.vaez\Desktop\Output\SKP1\" + DataBase.runId2 + "\\" + name + exten;
                 FileStream fk = new FileStream(fullnameoutput, FileMode.Create, FileAccess.Write);
 
                 StreamWriter sh = new StreamWriter(fk);
-
-
                 for (int i = 0; i < Lst.Coils.Count; i++)
                 {
                     sh.Write(Lst.Coils[i].IdCoil + "\t" +
@@ -564,8 +497,6 @@ namespace SKPScheduling
 
                 StreamWriter sh = new StreamWriter(fk);
                 int i = 0;
-
-
                 double dif = 0;
                 double used = 0;
 
@@ -665,8 +596,6 @@ namespace SKPScheduling
 
                 StreamWriter sh = new StreamWriter(fk);
                 int i = 0;
-
-
 
                 DateTime firstDate = CapPlans[0].DatePlan.Date;
                 for (i = 0; i < CapPlans.Count; i++)
@@ -786,9 +715,6 @@ namespace SKPScheduling
                         double maxWid = widMaxx;
                         double minWid = widMinn;
 
-
-
-
                         stream2.Write(Convert.ToString(Lst.ReleaseScheds[i].LstSeqCoil.Count)
 
 
@@ -797,8 +723,6 @@ namespace SKPScheduling
 
                               + "\t" + Convert.ToString(Lst.ProgEfrazes.Find(c => c.IdEfraz == Lst.ReleaseScheds[i].IdEfraz).ProgMis)
                                  + "\t" + Convert.ToString(Lst.ReleaseScheds[i].LstIndexSarfasl.Last())
-
-
 
                               + "\t" + Convert.ToString(maxWid)
                               + "\t" + Convert.ToString(minWid)
