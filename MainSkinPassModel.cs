@@ -25,26 +25,19 @@ namespace SKPScheduling
         private SequenceSKP sequenceSKP = new SequenceSKP();
         private RollSKP rollSKP = new RollSKP();
 
-
-
         public void runSkinPass1Model(CommonLists Lst)
         {
-
            functionSKP.chekStatBeforAlgorithm(Lst,releaseSKP,functionSKP,WriterSKP.PathWriter,WriterSKP.flgWriter);
-
-
             do
             {
 
-                // برای هر سرفصل و افراز
+                // For each sarfasl and efraz
                 MainL2.doForSarfaslEfraz(Lst, rollSKP, functionSKP, sequenceSKP, objectiveSkp, sarfaslSKP);
 
                 if (RunInformation.flgStopAlgorithm == -1)
                     break;
 
-
-
-                #region چک کردن عدم ساخت برنامه
+                #region  When no program is created
                 int chekCountinue = 0;
 
                 chekCountinue = MainL2.chekNotProg(Lst);
@@ -64,8 +57,6 @@ namespace SKPScheduling
                 if (RunInformation.flgStopAlgorithm == -1)
                     break;
 
-
-
                 InnerParameter.finiTimeAlgorithm = Status.CurrTime;
             } while ((Lst.SolutionsOutputPlan.Count < RunInformation.CountProg
 
@@ -73,7 +64,7 @@ namespace SKPScheduling
             || ((InnerParameter.finiTimeAlgorithm - InnerParameter.starTimeAlgorithm).TotalMinutes) < RunInformation.Hours.TotalMinutes)
 
 
-            && RunInformation.flgStopAlgorithm != -1);// شرط اتمام الگوریتم
+            && RunInformation.flgStopAlgorithm != -1);
 
             CapPlanUpDate.chekCoilWithoutSarfasl(Lst.CapPlanUpDates, Lst.Coils);
 
