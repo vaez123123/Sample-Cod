@@ -20,15 +20,12 @@ namespace SKPScheduling
       //SKP1
         public override void fillMainList(int indexSarfaslLocal, int idEfrazLocal, CommonLists Lst)
         {
-
-
             List<Coil> lstCoilLocal;
             Lst.CoilsMain.Clear();
             Lst.CoilsTemDelete.Clear();
-            Lst.CoilsMainCopy.Clear();
+            Lst.CoilsMainCopy.Clear();           
 
-
-            // اگر نوع برنامه حساس  باشد باید از کوچکترین عرض در کمپین استفاده نمود
+                // If the type of program is sensitive, the smallest width in the campaign should be used
             if (TanSkpTemParameter.lstNotSensitive.Contains(idEfrazLocal) != true)
 
                 lstCoilLocal = Lst.Coils.Where(q => q.IdEfraz == idEfrazLocal &&
@@ -37,10 +34,9 @@ namespace SKPScheduling
                                                     q.AvailTime <= Status.CurrTime
                                                      && InnerParameter.lstPfAvail.Contains(q.PfId)
                                                       && q.LstSarfaslGroup.Contains(indexSarfaslLocal)).ToList();
-            // 
+             
 
-            //اگر نوع برنامه  حساس  نباشد
-
+            // If the program type is not sensitive
             else
 
                 lstCoilLocal = Lst.Coils.Where(q => q.IdEfraz == idEfrazLocal &&
@@ -48,8 +44,6 @@ namespace SKPScheduling
                                                     q.AvailTime <= Status.CurrTime
                                                      && InnerParameter.lstPfAvail.Contains(q.PfId)
                                                      && q.LstSarfaslGroup.Contains(indexSarfaslLocal)).ToList();
-
-
 
             foreach (int i in Lst.lstAvailEquipGroupFailureTime)
             {
@@ -61,14 +55,9 @@ namespace SKPScheduling
                 lstCoilLocal.RemoveAll(b => b.LstMaxValueGroup.Contains(j) != true);
             }
 
-
             lstCoilLocal = lstCoilLocal.Where(a => a.LstSarfaslGroup.Contains(indexSarfaslLocal) == true && a.FlagPlan == 1 && InnerParameter.lstPfAvail.Contains(a.PfId)).ToList();
 
-
-
-
-            // اگر غلتک کاری تغییر نکرده است به اندازه پرش افزایشی عرض در کمپین می توان بالا رفت
-            // اگر غلتک تغییر کرده باشد  با توجه به دستورات بالا( بعد از " ام بی") تمام کلاف ها انتخاب شده اند
+            // If the work roll has not changed, it can be increased as much as the width increase jump in the campaign
             if (TanSkpTemParameter.changeRoll == false)
             {
 
@@ -80,9 +69,6 @@ namespace SKPScheduling
                 lstCoilLocal = lstCoilLocal.Where(b => b.Width <= (Status.LastWid + widJump) && InnerParameter.lstPfAvail.Contains(b.PfId)).ToList();
             }
 
-
-
-
             lstCoilLocal = lstCoilLocal.Distinct().ToList();
 
 
@@ -92,20 +78,15 @@ namespace SKPScheduling
                 Lst.CoilsMain.Add(a);
                 Lst.CoilsMainCopy.Add(a);
             }
-      
-            
+                  
         }
 
-        //SKP1
         public override void updateCurrStat(CommonLists Lst)
         {
-
-
             #region  if (lstOutputPlan.Count != 0)
 
             if (Lst.SolutionsOutputPlan.Count != 0)
             {
-
 
                 Status.LastWid = Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Width;
                 Status.LastTks = Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Tks;
@@ -113,13 +94,9 @@ namespace SKPScheduling
                 Status.IndexSarfasl = Lst.SolutionsOutputPlan.Last().IndexSarfasl;
                 Status.IdEfraz = Lst.SolutionsOutputPlan.Last().IdEfraz;
 
-
-
-
                 if (Status.MinWidCampain > Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Width)
 
                     Status.MinWidCampain = Lst.Coils[Lst.SolutionsOutputPlan.Last().LstSeqCoil.Last()].Width;
-
 
             }
 
@@ -136,7 +113,6 @@ namespace SKPScheduling
 
                 if (indexLocal != -1)
                 {
-                    // اخرین ریلیز
                     int maxLocalSeq = Lst.ReleaseScheds.Max(n => n.SeqSched);
 
                     int indexMaxLocal = Lst.ReleaseScheds.FindIndex(e => e.SeqSched == maxLocalSeq);
@@ -151,7 +127,7 @@ namespace SKPScheduling
 
                 }
 
-                // عرض اخر در صورتی که هیچ برنامه ای در دسترس نباشد
+                // Determining the latest status if no program is available                
                 else
                 {
 
@@ -168,11 +144,8 @@ namespace SKPScheduling
 
             #endregion
 
-
-
         }
-
-     
+    
         public override void chekStatBeforAlgorithm(CommonLists Lst, ReleasePackage releaseSKP,
                                           GeneralFunc functionSKP, string pathWriter, int flgWriter)
         {
@@ -185,49 +158,6 @@ namespace SKPScheduling
 
 
         }
-
-        //public void fixSolutionAndUpdate(CommonLists Lst, FileLogger fileLogger)
-        //{
-
-        //    // جایگذاری بهترین جواب
-        //    Solution.updatelstOutputPlan(Lst.bestSolution, Lst.SolutionsOutputPlan, fileLogger, Lst.Coils);
-
-
-
-        //    string local = "local.txt";
-        //    WriterSKP.writercurrProg(Lst.currSolution, local, false, Lst.Coils, Lst);
-
-
-
-        //    TimeFunc.chekTime(-1, Lst.SolutionsOutputPlan, Lst.ReleaseScheds, Lst.StationStops, Lst.Schedulings, Lst.ShiftWorks,
-        //            Lst.CapPlans, Lst.MaxValueGroups, Lst.Coils, Lst.CoilReleases, Lst.lstAvailMaxValueGroup, Lst.currSolution, Lst.Setups);
-
-        //    //چک کردن  ورک رول ها
-        //    RollSKP.chekWorkRoll(Lst);
-        //    // چک کردن وضعیت کمپین 
-        //    //  calcuWeiCampPlan(lstOutputPlan.Last());
-
-
-        //    Solution.resetObjToZeroObj(Lst.bestSolution, Lst.CapPlans, Lst.CapPlansCurr, Lst.MaxValueGroups, Lst.CapPlanUpDates);// صفر کردن بهترین جواب  
-
-        //    CapPlanFunc.calcuPffForPlans(-1, Lst.SolutionsOutputPlan, Lst.ReleaseScheds, WriterSKP.PathWriter, Lst.CapPlanUpDates, Lst.Coils, Lst.CoilReleases, WriterSKP.flgWriter);
-
-
-
-        //    //در صفر کردن جواب( تابع بالایی) هست
-        //    // updateLstCapPlanCurr();
-        //    //*
-        //    updateCurrStat(Lst);// تعیین وضعیت مینمم عرض کمپین و کلاف اخر و سرفصل
-
-        //    WriterSKP.writerBestProg(Lst.SolutionsOutputPlan.Last(), "Main.txt", true, Lst.Coils, Lst);
-
-        //    InnerParameter.countProgLocal = 0;
-        //    InnerParameter.RuleBetweenProg = 1;
-        //    RunInformation.chekFlagUser(Lst.Coils, Lst.SolutionsOutputPlan);
-
-        //    ProgEfraz.chekFlgAvailForProgAfraz(Lst.ProgEfrazes, Lst.Coils, Lst.SolutionsOutputPlan.Count());
-
-        //}
-
+       
     }
 }
