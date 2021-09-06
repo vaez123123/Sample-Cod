@@ -10,7 +10,6 @@ namespace SKPScheduling
 {
     public class SarfaslSKP : SarfaslL2
     {
-
         //SkP1
         public override void insertAvailSarfasl(List<int> lstAvailSarfasl, List<Coil> Coils, List<Roll> RollsBack, List<Sarfasl> Sarfasls,
            SarfaslL2 sarfaslLine, List<Scheduling> Schedulings, List<WidthJump> WidthJumps, List<GroupDef> GroupDefs,
@@ -22,15 +21,11 @@ namespace SKPScheduling
             {
                 List<int> sarfaalLocAvail = Coils.Where(b => b.FlagPlan == 1).SelectMany(a => a.LstSarfaslGroup).Distinct().ToList();
 
-
-
                 foreach (var item in Sarfasls)
                 {
                     if (sarfaalLocAvail.Contains(item.IndexSarfasl))
                         lstAvailSarfasl.Add(item.IndexSarfasl);
                 }
-
-
 
                 lstAvailSarfasl = lstAvailSarfasl.Distinct().ToList();
                 lstAvailSarfasl = lstAvailSarfasl.OrderBy(a => a).ToList();
@@ -39,8 +34,6 @@ namespace SKPScheduling
                 InnerParameter.lstChekFinishCapplan.Add(true);
 
         }
-
-   
-     
+    
     }
 }
