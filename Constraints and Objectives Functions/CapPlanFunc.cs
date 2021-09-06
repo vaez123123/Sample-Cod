@@ -9,6 +9,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
     public class CapPlanFunc
     {
 
+        // Different types of capacity changes
         public static void calcuPffForPlans(int seq, List<Solution> SolutionsOutputPlan, List<ReleaseSched> ReleaseScheds, string PathWriter,
             List<CapPlanUpDate> CapPlanUpDates, List<Coil> Coils, List<CoilRelease> CoilReleases)
         {
@@ -45,6 +46,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
         }
 
 
+        // Calculate the maximum amount of capacity
         public static int chekMaxCapPlan(int selectCoil, List<CapPlan> CapPlansCurr, List<Coil> Coils)
         {
             int pfLocal = Coils[selectCoil].PfId;
@@ -61,7 +63,7 @@ namespace IPSO.CMP.CommonFunctions.Functions
             return -1;
         }
 
-        //ALL
+        //Update capacity 
         public static void updateCapCurr(int select, List<CapPlan> CapPlansCurr, List<Coil> Coils)
         {
             double weiLocal = Coils[select].Weight;
