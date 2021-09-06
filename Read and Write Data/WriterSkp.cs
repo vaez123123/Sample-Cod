@@ -57,104 +57,7 @@ namespace SKPScheduling
 
             if (flgWriter == 1)
             {
-
-                #region writeTime
-
-                //writerTime("TimeData", RunModel.EllapsedTimeString.ToString(), "timeCounterTotal");
-                //writerTime("TimeData", SumData.EllapsedTimeString, "SumData");
-                //writerTime("TimeData", parameterData.EllapsedTimeString, "parameterData");
-                //writerTime("TimeData", coilData.EllapsedTimeString, "coilData");
-                //writerTime("TimeData", tksJumpData.EllapsedTimeString, "tksJumpData");
-                //writerTime("TimeData", TimeParameter.timereadJumpWid.EllapsedTimeString, "widData");
-                //writerTime("TimeData", capPlanData.EllapsedTimeString, "capPlanData");
-                //writerTime("TimeData", capPlanCurrData.EllapsedTimeString, "capPlanCurrData");
-                //writerTime("TimeData", WorkRollData.EllapsedTimeString, "WorkRollData");
-                //writerTime("TimeData", ReleaseData.EllapsedTimeString, "ReleaseData");
-                //writerTime("TimeData", ProgEfrazData.EllapsedTimeString, "ProgEfrazData");
-                //writerTime("TimeData", setupData.EllapsedTimeString, "setupData");
-                //writerTime("TimeData", maxValuData.EllapsedTimeString, "maxValuData");
-                //writerTime("TimeData", maxSetupData.EllapsedTimeString, "maxSetupData");
-                //writerTime("TimeData", weiObjData.EllapsedTimeString, "weiObjData");
-                //writerTime("TimeData", shiftData.EllapsedTimeString, "shiftData");
-                //writerTime("TimeData", MaxValueData.EllapsedTimeString, "MaxValueData");
-                //writerTime("TimeData", TimeParameter.timereadSarfasl.EllapsedTimeString, "SarfaslData");
-                //writerTime("TimeData", JumpBetweenCrownData.EllapsedTimeString, "JumpBetweenCrownData");
-                //writerTime("TimeData", ChangeRollData.EllapsedTimeString, "ChangeRollData");
-
-
-                //writerTime("TimeData", beforAlgorithm.EllapsedTimeString, "beforAlgorithm");
-                //writerTime("TimeData", doWhileAll.EllapsedTimeString, "doWhileAll");
-
-                //writerTime("TimeData", InsertSarfal.EllapsedTimeString, "InsertSarfal");
-                //writerTime("TimeData", ForFor.EllapsedTimeString, "ForFor");
-
-
-                //writerTime("TimeData", widJumpAf.EllapsedTimeString, "widJumpAf");
-
-                //writerTime("TimeData", Insertefraz.EllapsedTimeString, "InsertEfraz");
-
-                //writerTime("TimeData", Fillmain.EllapsedTimeString, "Fillmain");
-
-
-                //writerTime("TimeData", zeroSolForFor.EllapsedTimeString, "zeroSolForFor");
-                //writerTime("TimeData", chekWoRoCurrForFor.EllapsedTimeString, "chekWoRoCurrForFor");
-                //writerTime("TimeData", InchekWoRoCurrForFor.EllapsedTimeString, "InchekWoRoCurrForFor");
-                //writerTime("TimeData", sequencingProg.EllapsedTimeString, "sequencingProg");
-
-                //writerTime("TimeData", afterForDate.EllapsedTimeString, "afterForDate");
-
-                //writerTime("TimeData", calcuObjTime.EllapsedTimeString, "calcuObj");
-                //writerTime("TimeData", updateBestsol.EllapsedTimeString, "updateBestsol");
-                //// writerTime("TimeData", updateLstCapCurr.EllapsedTimeString, "updateLstCapCurr");
-                //writerTime("TimeData", updateBigsol.EllapsedTimeString, "updateBigsol");
-                //writerTime("TimeData", sarbarrnameAfterDate.EllapsedTimeString, "sarbarrnameAfterDate");
-                //writerTime("TimeData", NotsarbarrnameAfterDate.EllapsedTimeString, "NotsarbarrnameAfterDate");
-                //writerTime("TimeData", selectCoilSameAtri.EllapsedTimeString, "selectCoilSameAtri");
-                //writerTime("TimeData", zeroAfterDate.EllapsedTimeString, "zeroAfterDate");
-
-
-                //writerTime("TimeData", writercurProAfterForDate.EllapsedTimeString, "writercurProAfterForDate");
-
-                //writerTime("TimeData", forDate.EllapsedTimeString, "forDate");
-
-
-
-                //writerTime("TimeData", do_while.EllapsedTimeString, "do_while");
-
-
-                //writerTime("TimeData", selectC.EllapsedTimeString, "selectC");
-                //writerTime("TimeData", cheCap.EllapsedTimeString, "cheCap");
-                //writerTime("TimeData", SameAtt.EllapsedTimeString, "SameAtt");
-                //writerTime("TimeData", deletadCo.EllapsedTimeString, "deletadCo");
-                //writerTime("TimeData", updateAfterInsert.EllapsedTimeString, "updateAfterInsert");
-                //writerTime("TimeData", SameOrder.EllapsedTimeString, "SameOrder");
-                //writerTime("TimeData", SamePf.EllapsedTimeString, "SamePf");
-                //writerTime("TimeData", SeqIn.EllapsedTimeString, "SeqIn");
-                //writerTime("TimeData", TimeParameter.Timetks.EllapsedTimeString, "tks");
-                //writerTime("TimeData", TimeParameter.TimetksOutput.EllapsedTimeString, "tksOutput");
-                //writerTime("TimeData", TimeParameter.TimetksIn.EllapsedTimeString, "tksIn");
-                //writerTime("TimeData", TimeParameter.Timetkslimi.EllapsedTimeString, "tkslimi");
-                //writerTime("TimeData", beforDoWhileInDate.EllapsedTimeString, "befordowhileinDate");
-                //writerTime("TimeData", afterFor_For.EllapsedTimeString, "afterFor_For");
-
-
-                //writerTime("TimeData", fixSolution.EllapsedTimeString, "fixSolution");
-                //writerTime("TimeData", updatelstOutput.EllapsedTimeString, "updatelstOutput");
-                //writerTime("TimeData", behbud.EllapsedTimeString, "behbud");
-                //writerTime("TimeData", chekTimeee.EllapsedTimeString, "chekTimeee");
-                //writerTime("TimeData", chekWorkR.EllapsedTimeString, "chekWorkR");
-                //writerTime("TimeData", chekWorkBa.EllapsedTimeString, "chekWorkBa");
-                //writerTime("TimeData", flgCoilCla.EllapsedTimeString, "flgCoilCla");
-                //writerTime("TimeData", calcuPffForPl.EllapsedTimeString, "calcuPffForPl");
-                //writerTime("TimeData", updaStatus.EllapsedTimeString, "updaStatus");
-                //writerTime("TimeData", resetObjToZero.EllapsedTimeString, "resetObjToZero");
-                //writerTime("TimeData", chekFlgAvailForProgAf.EllapsedTimeString, "chekFlgAvailForProgAf");
-                //writerTime("TimeData", writerBestPr.EllapsedTimeString, "writerBestPr");
-                //writerTime("TimeData", writercurrP.EllapsedTimeString, "writercurrP");
-
-
-                #endregion
-
+                
                 write(coilmain, Lst);
                 writerworkRoll(Lst.RollsWork, workRoll);
                 writerworkRoll(Lst.RollsBack, backRoll);
@@ -253,7 +156,6 @@ namespace SKPScheduling
 
 
                 // fullnameoutput = @"C:\Documents and Settings\p.vaez\Desktop\Output\SKP1\" + DataBase.runId2 + "\\" + name + exten;
-                // یعنی همه جواب ها داخل یه فایل  چاپ بشود
                 FileStream fk = new FileStream(fullnameoutput, FileMode.Create, FileAccess.Write);
 
                 StreamWriter sh = new StreamWriter(fk);
@@ -430,29 +332,7 @@ namespace SKPScheduling
 
                         );
 
-                    // List<int> pfLocal= new List<int>();
-                    //for (int i = 0; i < lstOutputPlan.Count; i++)
-                    //{
-
-
-                    //}
-                    //= lstOutputPlan.Where(c => lstCoil[c.lstSeqCoil].pfId).ToList();
-
                   
-                    //foreach (int i in progLoc.lstSeqCoil)
-                    //{
-                    //    int Pf = lstCoil[i].pfId;
-                    //    //if (z != Pf)
-                    //    //{
-                    //    //    if(z!= -1)
-                    //    stream2.Write("\t" + Convert.ToString(Pf))
-                    //        ;//+ "=" + "\t" + Convert.ToString(wei));
-                    //    //    z = Pf;
-                    //    //    wei = 0;
-                    //    //}
-                    //    //wei += lstCoil[i].weight;
-
-                    //}
                     stream2.WriteLine();
                 }
 
@@ -502,25 +382,11 @@ namespace SKPScheduling
                                    where progLoc.LstSeqCoil.Contains(c.ModelIndexCoil)
                                    select c.Width).Min();
 
-                    //var tksOutMaxx = (from c in lstCoil.AsEnumerable()
-                    //         where progLoc.lstSeqCoil.Contains(c.modelIndexCoil)
-                    //         select c.tksOutput).Max();
-
-                    //var tksOutMinn = (from c in lstCoil.AsEnumerable()
-                    //              where progLoc.lstSeqCoil.Contains(c.modelIndexCoil)
-                    //              select c.tksOutput).Min();
-                    //double tksOutMax = tksOutMaxx;
-                    //double tksOutMin = tksOutMinn;
 
                     double tksMin = tksMinn;
                     double tksMax = tksMaxx;
                     double maxWid = widMaxx;
                     double minWid = widMinn;
-
-
-
-
-
                     stream2.Write(Convert.ToString(Lst.SolutionsOutputPlan.Count)
                          + "\t" + Convert.ToString(InnerParameter.countProgLocal)
 
@@ -572,28 +438,7 @@ namespace SKPScheduling
 
                         );
 
-                    // List<int> pfLocal= new List<int>();
-                    //for (int i = 0; i < lstOutputPlan.Count; i++)
-                    //{
-
-
-                    //}
-                    //= lstOutputPlan.Where(c => lstCoil[c.lstSeqCoil].pfId).ToList();
-
-                    //foreach (int i in progLoc.lstSeqCoil)
-                    //{
-                    //    int Pf = lstCoil[i].pfId;
-                    //    //if (z != Pf)
-                    //    //{
-                    //    //    if(z!= -1)
-                    //    stream2.Write("\t" + Convert.ToString(Pf))
-                    //        ;//+ "=" + "\t" + Convert.ToString(wei));
-                    //    //    z = Pf;
-                    //    //    wei = 0;
-                    //    //}
-                    //    //wei += lstCoil[i].weight;
-
-                    //}
+                    
                     stream2.WriteLine();
                 }
 
@@ -639,10 +484,6 @@ namespace SKPScheduling
                     stream2.WriteLine();
                 }
 
-
-
-
-
                 stream2.WriteLine();
 
                 stream2.Close();
@@ -666,7 +507,6 @@ namespace SKPScheduling
 
 
                 // fullnameoutput = @"C:\Documents and Settings\p.vaez\Desktop\Output\SKP1\" + DataBase.runId2 + "\\" + name + exten;
-                // یعنی همه جواب ها داخل یه فایل  چاپ بشود
                 FileStream fk = new FileStream(fullnameoutput, FileMode.Create, FileAccess.Write);
 
                 StreamWriter sh = new StreamWriter(fk);
@@ -871,17 +711,6 @@ namespace SKPScheduling
         }
 
 
-        //public static void creatNote(string route, string pathWriter)
-        //{
-        //    if (flgWriter == 1)
-        //    {
-        //        string r = PathWriter + route;
-        //        FileStream fk;
-        //        fk = new FileStream(r, FileMode.Create, FileAccess.Write);
-        //        StreamWriter stream2 = new StreamWriter(fk);
-        //        stream2.Close();
-        //    }
-        //}
        
         public static void writeScheduling(string name, CommonLists Lst)
         {
@@ -926,10 +755,6 @@ namespace SKPScheduling
 
                     for (int i = 0; i < Lst.ReleaseScheds.Count; i++)
                     {
-
-
-
-
 
                         var tksMaxx = (from c in Lst.CoilReleases.AsEnumerable()
                                        where Lst.ReleaseScheds[i].LstSeqCoil.Contains(c.CoilIndex)
@@ -1001,17 +826,12 @@ namespace SKPScheduling
                         for (int k = 0; k < Lst.ReleaseScheds[i].LstWorkRoll.Count; k++)
                         {
                             stream2.Write(Lst.ReleaseScheds[i].LstWorkRoll[k]);
-
-
                         }
-
 
                         stream2.WriteLine();
 
                     }
                 }
-
-
 
                 stream2.Close();
             }
@@ -1022,14 +842,9 @@ namespace SKPScheduling
             if (flgWriter == 1)
             {
                 string fullnameoutput;
-
-
                 string exten = ".txt";
 
-
-
                 fullnameoutput = PathWriter + name + exten;
-                // یعنی همه جواب ها داخل یه فایل  چاپ بشود
                 FileStream fk = new FileStream(fullnameoutput, FileMode.Create, FileAccess.Write);
 
                 StreamWriter sh = new StreamWriter(fk);
@@ -1044,22 +859,6 @@ namespace SKPScheduling
                        Lst.Coils[i].RankTotal + "\t"
                     );
 
-
-                    //double difDatLast = (dataBase.MaxDatLast - Coils[i].DatLast).Days;
-                    //sh.Write(difDatLast + "\t");
-
-                    ////double DatLastR = Math.Round(difDatLast / ((dataBase.maxDatLast - dataBase.minDatLast).Days), 4);
-                    //sh.Write(Coils[i].RankDatLast + "\t");
-
-                    //double difEnter = (DateTime.Now - Coils[i].EnterStorge).Days;
-                    //sh.Write(difEnter + "\t");
-
-                    ////double EnterR = 1 - Math.Round(difEnter / (currStat.currTime - dataBase.minEnterStorge).Days, 4);
-                    //sh.Write(Coils[i].RankDurability + "\t");
-
-                    //sh.Write(Coils[i].Priority + "\t");
-
-                    //sh.Write(Coils[i].RankPriority + "\t");
 
                     sh.WriteLine();
                 }
