@@ -9,7 +9,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
     public class GroupDef// insert  min tks in first index list 
     {
         public int IndexGroup { get; set; }
-        public int IdGroup { get; set; }//DB  کد گروه
+        public int IdGroup { get; set; }//DB  
         public int PriorityGroup { get; set; }//DB
         public int WidFrom { get; set; }//DB
         public int WidTo { get; set; }//DB
@@ -39,10 +39,8 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
 
                 foreach (var j in lstLocCoil)
                 {
-                    // در کلاس کویل
                     j.LstGroupDef.Add(gr.IdGroup);
 
-                    // در کلاس تعریف گروه 
                     gr.LstCoilGroup.Add(j.ModelIndexCoil);
                 }
             }
