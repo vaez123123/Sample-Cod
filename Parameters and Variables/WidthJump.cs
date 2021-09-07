@@ -17,9 +17,9 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         public int FlgInputOutput; // 0 =in  1= out
         public int IdEfraz { get; set; }
         /// <summary>
-        /// نزولی =2 
-        /// 1= صعودی
-        /// 0= نوسانی
+        ///  Descending=2 
+        /// Ascending=1 
+        /// Sinusoidal=0
         /// </summary>
         public int FlgSeqWid { get; set; }
 
@@ -45,11 +45,11 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
 
             #region  log
             if (InnerParameter.flgSeqWidIn == (int)Parameter.EnumStatusJump.Swinging)
-                statusLoc = "سینوسی";
+                statusLoc = "Sinusoidal";
             else if(InnerParameter.flgSeqWidIn == (int)Parameter.EnumStatusJump.Ascending)
-                statusLoc = "صعودی";
+                statusLoc = "Ascending";
             else
-                statusLoc = "نزولی";
+                statusLoc = "Descending";
 
 
             messageLoc = "###############" +InnerParameter.tab+ InnerParameter.countFixProg + InnerParameter.symbole + Lst.SolutionsOutputPlan.Count +InnerParameter.tab+ "###############";
@@ -88,7 +88,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
             double maxPcnDecrease = 0;
             int flgSeqWid = 0;
 
-            #region عرض داخل برنامه
+            #region Input width
             if (FlgInputOutput == 0)
             {
                 var qryInp = from widJump in WidthJumps
@@ -102,7 +102,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                                  flgSeq = widJump.FlgSeqWid
                              };
 
-                //اگر پرش وابسته به نوع برنامه نباشد
+                //If the jump does not depend on the type of program
                 if (qryInp.Count() <= 0)
                 {
                     var qry2 = from widJump in WidthJumps
@@ -153,9 +153,9 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                 InnerParameter.flgSeqWidIn = flgSeqWid;
 
             }
-            #endregion عرض داخل برنامه
+            #endregion 
 
-            #region عرض بین برنامه ها
+            #region width between two programm
             else //flgInputOutput = 1
             {
                 var qryInp = from widJump in WidthJumps
@@ -169,7 +169,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                                  flgSeq = widJump.FlgSeqWid
                              };
 
-                //اگر پرش وابسته به نوع برنامه نباشد
+                //If the jump does not depend on the type of program
                 if (qryInp.Count() <= 0)
                 {
                     var qry2 = from widJump in WidthJumps
@@ -217,7 +217,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                 InnerParameter.widJumpLocalOutDesPcn = maxPcnDecrease;
                 
             }
-            #endregion //عرض بین برنامه ها
+            #endregion //
 
         }
 
