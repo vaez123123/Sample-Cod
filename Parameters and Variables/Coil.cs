@@ -45,7 +45,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         //Tem
         public int CodReduction { get; set; }//DB  value : 0,1
         //Tem-Tin 
-        public int CodSurfaceroughness { get; set; }//DB  کد زبری سطح : براق، نیمه براق ، مات مقادیر به صورت کد
+        public int CodSurfaceroughness { get; set; }//DB  
         //Tem
         public string RoughnessCategories { get; set; }//DB
         ////Tem
@@ -55,7 +55,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         ////Tem
         //public string Reduction { get; set; }//DB
         //Tin-Gal-Col
-        public int CodCoat { get; set; }//DB// code pusheshe sath // (برای خط قلع اندود ترکیب رو و زیر در این فیلد ذخیره می شود) 
+        public int CodCoat { get; set; }//DB// code pusheshe sath //  
         //Gal-Col
         public int CodCoatBottom { get; set; }//DB
 
