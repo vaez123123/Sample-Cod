@@ -11,38 +11,12 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
 
         #region
         public int PfId { get; set; }
-
-        public DateTime DatePlan { get; set; }
-
-        /// <summary>
-        ///  1-نیاز خالص  که به ازای هر کلاف به روز می شود  در جواب جاری 
-        ///  2-نیاز خالص که بعد از فیکس کردن جواب تغییر می کند
-        /// </summary>
+        public DateTime DatePlan { get; set; 
         public double NetValuePf { get; set; }
-        //مقدار پاسخ داده شده توسط الگوریتم تا این لحظه
-        //    public double respondFixValuePf { get; set; }//MET 
-
-
-
-        /// <summary>
-        /// مقدار ماکزیمم که  برای هر کلاف به روز می شود در جواب جاری 
-        /// </summary>
         public double MaxValueRespond;
-
-        /// <summary>
-        /// مقدار ماکزیمم که با تغییر روز به روز رسانی می شود
-        /// </summary>
         public double MaxValueFixChangeDay;
-
-        /// <summary>
-        /// نیاز خالص که با تغییر روز به روز رسانی میشود
-        /// برای محاسبه تابع هدف
-        /// </summary>
         public double NetValueAfterChangeDay { get; set; }
-        /// <summary>
-        /// برای چاپ جواب  استفاده می شود
-        /// </summary>
-        public double NetValuePfFix { get; set; }
+         public double NetValuePfFix { get; set; }
 
         public int FlgInactive;  // 0 = inactive 
 
@@ -377,7 +351,6 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                 //break;
                 else
                 {
-                    //  به منظور جلوگیری از تکرار حلقه  زمانی که کاربر نوع برنامه درخواستی را تعیین می کند
                     datePlanLocref = InnerParameter.maxDate.Date;
                     return 0;
                 }
