@@ -13,7 +13,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
     public class Sarfasl
     {
         public int IndexSarfasl;
-        public int IdSarfasl { get; set; }//DB  کد سر فصل
+        public int IdSarfasl { get; set; }//DB    
         public List<int> LstCoilSarfasl = new List<int>();//modelindexCoil
 
         public List<int> LstGroupSarfasl = new List<int>();
