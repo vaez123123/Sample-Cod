@@ -10,12 +10,11 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         public DateTime DatRollEnter { get; set; }
         public bool FirstPlan;// false =firstPlan 
 
-        public double LenOpt { get; set; }// مقدار بهینه
+        public double LenOpt { get; set; }//  
         public double WeiOpt { get; set; }
         //Pic
         public int DatOpt { get; set; }
 
-        // کار شده قبل از الگوریتم
         public double WeiDB { get; set; }
         public double LenDB { get; set; }
         //Pic
@@ -27,7 +26,6 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         //Pic
         public int DatRelease { get; set; }
 
-        //کار شده تاحال توسط الگوریتم
         //Tan-SRM
         public double CurrentTotalFixWei { get; set; }
         public double CurrentTotalFixLen { get; set; }
@@ -38,7 +36,6 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         public double UpperPerc;
 
 
-        //محاسبه تناژ و کیلومتر کار شده در غلتک فعلی
         public static void calcuWeiLenRoll(ref double weiRoll, ref double lenRoll, Roll roll)
         {      
             weiRoll = roll.CurrentTotalFixWei + roll.WeiRelease + roll.WeiDB;
