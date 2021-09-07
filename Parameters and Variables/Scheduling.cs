@@ -13,8 +13,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         /// <summary>
         /// 1=PLAN, 2=ALG, 3=SHUTDOWN, 4=INACTIVE, 5=SETUP, 6=finishCapPlan, 7 ,8 , -1=virtual
         /// </summary>
-        public int TypId { get; set; }//نشان دهنده اینکه برنامه است یا شاتدان یا این اکتیو
-
+        public int TypId { get; set; }
 
         //ALL
         public static void addLstScheduling(int typeId, int indxSeq, TimeSpan setupLoc, List<ReleaseSched> ReleaseScheds,
