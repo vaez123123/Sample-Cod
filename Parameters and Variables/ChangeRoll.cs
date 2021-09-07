@@ -11,9 +11,9 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         public int IndexSarfaslTo;
         public int IdMisProgFrom;
         public int IdMisProgTo;
-        public int FlagIncreaseWid;// یک نشان دهنده افزایش عرضی
-        public int FlagChangeRoll;//یک نیاز به تغییر غلتک دارد
-        public int FlagMinCamp;//برای برنامه های حساس باید از مینیم عرض کمپین شروع شوند 
+        public int FlagIncreaseWid;// 1: for increase wid
+        public int FlagChangeRoll;//1: change Roll
+        public int FlagMinCamp;// 1 : for sensitive programm type        
         public static bool changeRoll = true; // true change  fals no change
        //Tan
         public enum WorkRollEnum
