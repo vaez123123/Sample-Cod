@@ -21,9 +21,9 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         //Tan
         public string MisProg;
         /// <summary>
-        /// نزولی =2 
-        /// 1= صعودی
-        /// 0= نوسانی
+        /// Descending =2 
+        /// 1= Ascending
+        /// 0= Sinusoidal
         /// </summary>
         public int flgSeqThick;
 
