@@ -11,14 +11,11 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
 
         //****************************Logger***************************
         //*********
-        //این آدرس بعدا باید برای همه خطوط پر شود یا در هر خط  یا در همین جا
         public FileLogger fileLogger = new FileLogger();
         public FileLogger fileLoggerRoll = new FileLogger();
         public FileLogger fileLoggerBeforAlgorithm = new FileLogger();
         public FileLogger FileLoggerSelectCoil = new FileLogger();
-        
-
-
+       
 
         //****************************object***************************
         public Solution bestSolution = new Solution();
@@ -76,9 +73,6 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
 
         public List<Priority> Prioritys = new List<Priority>();
 
-
-        //vaez
-        //ذخیره جواب های ساخته شده به ازای هر جواب فیکس شده
         public List<Solution> SolutionsLocal= new List<Solution>();
 
        
@@ -87,19 +81,16 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         //public List<Zone> Zones = new List<Zone>();
 
         //****************************   List of other station    **********************
-        //لیست توقفات خط دیگر
         public List<StationStop> StationStopsOtherSt = new List<StationStop>();
 
-        //لیست برنامه های خط دیگر
         public List<ReleaseSched> ReleaseSchedsOtherStation = new List<ReleaseSched>();
         //******************************************************************************
-        // مواقع مورد نیاز نیو شود که نیاز به  خالی کردن لیست ها نباشد
         public List<Coil> CoilsAvailProg = new List<Coil>();
         public List<Coil> CoilsMain = new List<Coil>(); 
         public List<Coil> CoilsMainCopy = new List<Coil>(); 
         public List<Coil> CoilsTemDelete = new List<Coil>();
         public List<Coil> CoilsCapDay = new List<Coil>();
-        public List<Coil> CoilsRestart = new List<Coil>();// حذف کلاف ها که برنامه با مینیمم تعداد کلاف تولید نکرده اند
+        public List<Coil> CoilsRestart = new List<Coil>();// 
 
         public List<int> lstAvailEquipGroupFailureTime = new List<int>();
         public List<int> lstAvailMaxValueGroup = new List<int>();
@@ -113,10 +104,8 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         public List<int> lstNotAvailLenForCoilReleaseOtherSt = new List<int>();
 
         public List<Coil> lstFailedCoilForPlan = new List<Coil>();
-        // خطوطی که داری غلتک پشتیبان هستند
 
         public static List<int> lstStationBackRoll = new List<int>();
-        // خطوطی که دارای غلتک کاری هستند
         public static List<int> lstStationWorkRoll = new List<int>();
 
 
