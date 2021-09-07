@@ -25,18 +25,16 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         //Tin
         public int WeiMin { get; set; }//DB
        
-        public int FlgNightPlan { get; set; }//DB اگر نوع برنامه در شیفت شب قابل برنامه ریزی باشد برابر یک درغیر اینصورت صفر 
+        public int FlgNightPlan { get; set; }//DB  
         //Tan-Tem
         public int FlgSensitiveSur;
-        //Pic فعلا نیاز نیست
+        //Pic 
         public List<int> Trim = new List<int>();//DB
-        //Pic فعلا نیاز نیست
+        //Pic 
         public int Oil;//DB
         //Pic
-        public int MaxNumChangeWid = -1; // DB   حداکثر تعداد تغییر عرض
-        //Pic
-        public double MaxPercChangeWid = -1; // DB حداکثر درصد تغییر عرض
-        //SRM
+        public int MaxNumChangeWid = -1; // DB   
+        public double MaxPercChangeWid = -1; // 
         public List<int> ProgEfrazZones = new List<int>();
 
         #endregion
@@ -84,8 +82,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                 if (RunInformation.FlgUser == -1)
                 {
 
-                    //اگر برنامه ای به شرایطی از برنامه های قبل وابسته باشد باید در اینجا شرایط اضافه گردد
-
+ 
                     foreach (ProgEfraz i in lstLocAfraz2)
                     {
 
@@ -102,7 +99,6 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                     Lst.lstAvailProg = Lst.lstAvailProg.Distinct().ToList();
                     Lst.lstAvailProg = Lst.lstAvailProg.OrderBy(a => a).ToList();
                     
-                    //// اول کمپین
                     //if (lstBackRoll.Last().firstPlan == false)
                     //{
                     //    //chekDecInc = false;
@@ -113,7 +109,6 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
                     //else
                     //{
 
-                    //        //کلیه برنامه ها در لیست قرار می گیرد
                     //        foreach (ProgEFraz i in lstProgEFraz)
                     //        {
 
