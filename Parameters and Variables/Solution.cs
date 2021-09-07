@@ -19,11 +19,9 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         public int IndexWorkRoll { get; set; }//index list Workroll
 
 
-        // شماره برنامه فیکس شده از برنامه های لوکال ساخته شده
-        // اگر یک عدد منفی خیلی بزرگ باشد یعنی در بهبود ساخته شده است
         public int CountFixProg;
-        public double WeiProg; //وزن برنامه
-        public double LenProg; // کیلومتر برنامه          
+        public double WeiProg; // 
+        public double LenProg; //            
 
         public DateTime EndTimeSelectProg;
         public DateTime StartTimeSelectProg;
@@ -71,7 +69,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
 
 
 
-        public double TotalObj;// کل تابع هدف برنامه 
+        public double TotalObj;//     
         public double ObjDatlast;
         public double ObjPrior;
         public double ObjDurability;
@@ -117,11 +115,10 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
         //Tan
         public int MaxWidSarbarn;
         //Tan
-        public bool FlagChangeSarfaslFinal;// به منظور چک کردن تغیر سرفصل  بعد از ساخت برنامه (سرفصل داخلی ) 
+        public bool FlagChangeSarfaslFinal;// 
         // true == change
         //Tan
-        public Boolean FlagChangeStat;//  به منظور چک کردن  تغییر  وضعیت غلتک های کاری قبل و بعد از ساخت برنامه
-
+        public Boolean FlagChangeStat;//  
         //Tem-skp1
         public int ChekChangeWorkRoll;
 
@@ -218,8 +215,7 @@ namespace IPSO.CMP.CommonFunctions.ParameterClasses
 
         }
 
-        // جایگذاری بهترین جواب و منفی کردن فلگ پلن برای کلافهای برنامه
-        public static void updatelstOutputPlan(Solution besSolutionlocal, List<Solution> SolutionsOutputPlan, FileLogger fileLogger, List<Coil> Coils)
+          public static void updatelstOutputPlan(Solution besSolutionlocal, List<Solution> SolutionsOutputPlan, FileLogger fileLogger, List<Coil> Coils)
         {
             if (besSolutionlocal.LstSeqCoil.Count != 0)
             {
